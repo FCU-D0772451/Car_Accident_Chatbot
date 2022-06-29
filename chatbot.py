@@ -249,7 +249,7 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('9stiBZCUuA2lqLd2MM3rRMHpvknAPg/6OCHAN9bLYDBTzePOD7hRLYcLm1ICQq6ZNwG9M04o1u0vicRZBfrBJQ4GNnkiY2akRzMlXI4VZTCIT8EVMiiXXKV8Y2fmyvvo/XvCKwdrfuOOV4STv0eo8AdB04t89/1O/w1cDnyilFU=')
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def webhook():
     json = request.get_json(silent=True,force=True)
     
