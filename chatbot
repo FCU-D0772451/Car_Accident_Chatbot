@@ -1,8 +1,6 @@
 from aiohttp import payload_type
 import psycopg2
 #import pymysql
-from pprint import pprint
-from nltk.corpus import wordnet as wn
 import pyimgur
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud

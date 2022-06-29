@@ -1,0 +1,7 @@
+flask 
+pyimgur
+psycopg2
+matplotlib.pyplot
+wordcloud
+linebot
+gunicorn
