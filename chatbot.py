@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from flask import Flask, request, make_response, jsonify
 
-#plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.sans-serif'] = ['SimHei'] 
+#plt.rcParams['font.sans-serif'] = ['Microsoft YaHei'] 
+plt.rcParams['axes.unicode_minus'] = False
 
 #db = pymysql.connect(host='localhost', port=3306, user='root', passwd='root', db='car', charset='utf8',autocommit=True)
 # 使用 cursor() 方法建立一個指標物件 cursor
@@ -22,7 +24,7 @@ conn = psycopg2.connect (   database = "d9c2c2jfvm9j41",
 cursor = conn.cursor()
 
 def xi(keyword = None):
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
+    
     cursor.execute("SELECT count(area) FROM member WHERE area = '{}'".format(keyword))
     accident_times = cursor.fetchall()
 
@@ -57,7 +59,6 @@ def eachtime(keyword = None):
     cursor.execute("SELECT hours, COUNT(hours) FROM member WHERE area = '{}' GROUP BY hours ORDER BY hours DESC".format(keyword))
     clock = cursor.fetchall()
 
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
     hours = []
     times = []
     for i in clock:
@@ -90,9 +91,7 @@ def eachtime(keyword = None):
 def total():
     cursor.execute("SELECT area, COUNT(area) FROM member GROUP BY area ORDER BY COUNT(area) DESC")
     accident = cursor.fetchall()
-    
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
-
+        
     area = []
     times = []
     for i in accident:
@@ -126,8 +125,6 @@ def total():
 def death():
     cursor.execute("SELECT area , COUNT(death) FROM member WHERE death = '{}' GROUP BY area ORDER BY COUNT(death) DESC".format('1'))
     death = cursor.fetchall()
-
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
 
     area = []
     times = []
@@ -163,8 +160,6 @@ def acci_type():
     cursor.execute("SELECT type FROM member")
     accident_type = cursor.fetchall()
 
-    plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
-    
     type = []
 
     for i in accident_type:
@@ -232,7 +227,7 @@ def acci_type():
 
     words = " ".join(type)
 
-    my_wordcloud = WordCloud(background_color = 'white', prefer_horizontal = 1, min_font_size = 10, width = 1080, height = 1080, font_path='jf-jinxuan-bold.otf').generate(words)
+    my_wordcloud = WordCloud(background_color = 'white', prefer_horizontal = 1, min_font_size = 10, width = 1080, height = 1080, font_path='.fonts/jf-jinxuan-bold.otf').generate(words)
 
     fig = plt.figure()
     plt.imshow(my_wordcloud)
