@@ -5,7 +5,6 @@ import pyimgur
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from flask import Flask, request, make_response, jsonify
-from linebot import LineBotApi
 
 plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei'] 
 plt.rcParams['axes.unicode_minus'] = False
@@ -246,7 +245,7 @@ def acci_type():
 app = Flask(__name__)
 
 
-line_bot_api = LineBotApi('9stiBZCUuA2lqLd2MM3rRMHpvknAPg/6OCHAN9bLYDBTzePOD7hRLYcLm1ICQq6ZNwG9M04o1u0vicRZBfrBJQ4GNnkiY2akRzMlXI4VZTCIT8EVMiiXXKV8Y2fmyvvo/XvCKwdrfuOOV4STv0eo8AdB04t89/1O/w1cDnyilFU=')
+#line_bot_api = LineBotApi('9stiBZCUuA2lqLd2MM3rRMHpvknAPg/6OCHAN9bLYDBTzePOD7hRLYcLm1ICQq6ZNwG9M04o1u0vicRZBfrBJQ4GNnkiY2akRzMlXI4VZTCIT8EVMiiXXKV8Y2fmyvvo/XvCKwdrfuOOV4STv0eo8AdB04t89/1O/w1cDnyilFU=')
 
 
 @app.route('/', methods=['GET', 'POST'])
