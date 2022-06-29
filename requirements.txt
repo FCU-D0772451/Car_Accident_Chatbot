@@ -3,5 +3,4 @@ pyimgur
 psycopg2
 matplotlib
 wordcloud
-linebot
 gunicorn
